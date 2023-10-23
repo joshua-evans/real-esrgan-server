@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: docker login 
+      run: docker push https://sjc.vultrcr.com/jetestcontainer -u ${{ secrets.container_username }} -p ${{ secrets.container_key }}
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag realesrgan_server:$(date +%s)
+    - name: Publish
+      run: docker push sjc.vultrcr.com/jetestcontainer/:realesrgan_server:$(date +%s)
