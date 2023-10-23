@@ -21,4 +21,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: realesrgan_server:$GITHUB_SHA
+          tags: realesrgan_server/app:latest
