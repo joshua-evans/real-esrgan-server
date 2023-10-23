@@ -9,6 +9,6 @@ RUN pip install gfpgan
 RUN pip install --no-cache-dir --upgrade -r /code/requirments.txt
 RUN python ./RealESRGAN/setup.py develop
 
-COPY ./app /code/app
+COPY ./real-esgan-server /code/real-esgan-server
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
