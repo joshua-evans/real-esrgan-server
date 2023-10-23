@@ -8,7 +8,7 @@ RUN pip install basicsr
 RUN pip install facexlib
 RUN pip install gfpgan
 RUN pip install --no-cache-dir --upgrade -r /code/requirments.txt
-RUN python ./RealESRGAN/setup.py develop
+RUN python /code/RealESRGAN/setup.py develop
 
 COPY ./main.py /code/main.py
 
