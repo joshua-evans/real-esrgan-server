@@ -3,21 +3,16 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 env:
   CONTAINER_USERNAME: ${{ secrets.container_username }}
   CONTAINER_KEY: ${{ secrets.container_key }}
 
 jobs:
-
-  build:
-
+  setup-build-publish:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
     - name: docker login
-      run: docker login "https://sjc.vultrcr.com/jetestcontainer -u $CONTAINER_USERNAME -p $CONTAINER_KEY"
-
+      run: docker login "https://sjc.vultrcr.com/jetestcontainer" -u $CONTAINER_USERNAME -p $CONTAINER_KEY
