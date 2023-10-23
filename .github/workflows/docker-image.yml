@@ -19,3 +19,6 @@ jobs:
     -
       name: Build and Publish
       run: docker build --file Dockerfile --tag realesrgan_server:$GITHUB_SHA
+    -
+      name: Publish
+      run: docker push sjc.vultrcr.com/jetestcontainer/:realesrgan_server$GITHUB_SHA
