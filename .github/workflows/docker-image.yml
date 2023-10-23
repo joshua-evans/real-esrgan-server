@@ -17,5 +17,8 @@ jobs:
         username: ${{ secrets.container_username }}
         password: ${{ secrets.container_key }}
     -
-      name: Build
-      run: docker build --tag realesrgan_server:$GITHUB_SHA
+        name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: realesrgan_server:$GITHUB_SHA
