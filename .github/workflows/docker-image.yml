@@ -18,4 +18,4 @@ jobs:
         password: ${{ secrets.container_key }}
     -
       name: Build
-      run: docker build --file Dockerfile --tag realesrgan_server:$GITHUB_SHA
+      run: docker build --tag realesrgan_server:$GITHUB_SHA
