@@ -16,4 +16,6 @@ jobs:
         registry: sjc.vultrcr.com
         username: ${{ secrets.container_username }}
         password: ${{ secrets.container_key }}
-    
+    -
+      name: Build and Publish
+      run: docker build --file Dockerfile --tag realesrgan_server:$GITHUB_SHA
