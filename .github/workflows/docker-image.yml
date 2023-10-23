@@ -19,8 +19,5 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: docker login
-      run: docker login "https://sjc.vultrcr.com/jetestcontainer -u $CONTAINER_USERNAME -p $CONTAINER_KEY"
-    - name: Build the Docker image
-      run: docker build --file Dockerfile --tag realesrgan_server:$GITHUB_SHA
-    - name: Publish
-      run: docker push "sjc.vultrcr.com/jetestcontainer/:realesrgan_server$GITHUB_SHA"
+      run: docker login https://sjc.vultrcr.com/jetestcontainer -u $CONTAINER_USERNAME -p $CONTAINER_KEY
+
