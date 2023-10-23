@@ -19,5 +19,5 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: docker login
-      run: docker login https://sjc.vultrcr.com/jetestcontainer -u $CONTAINER_USERNAME -p $CONTAINER_KEY
+      run: docker login "https://sjc.vultrcr.com/jetestcontainer -u $CONTAINER_USERNAME -p $CONTAINER_KEY"
 
