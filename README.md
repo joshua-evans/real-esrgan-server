@@ -1,2 +1,2 @@
-![docker build and deploy](https://github.com/OWNER/REPOSITORY/actions/workflows/WORKFLOW-FILE/badge.svg)
+![docker build and deploy](https://github.com/joshua-evans/real-esrgan-server/actions/workflows/docker-image.yml/badge.svg)
 # real-esrgan-server
