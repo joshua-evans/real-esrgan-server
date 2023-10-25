@@ -15,7 +15,7 @@ jobs:
       with:
         registry: sjc.vultrcr.com
         username: ${{ secrets.container_username }}
-        password: ${{ secrets.container_key }}
+        password: ${{ secrets.container_auth }}
     -
         name: Build and push
         uses: docker/build-push-action@v5
