@@ -82,26 +82,27 @@ def get_requirements(filename='requirements.txt'):
     
 if __name__ == '__main__':
   	setup(
-        name='realesrgan',
-        version="1"
-        description='Real-ESRGAN aims at developing Practical Algorithms for General Image Restoration',
-        long_description=readme(),
-        long_description_content_type='text/markdown',
-        author='Xintao Wang',
-        author_email='xintao.wang@outlook.com',
-        keywords='computer vision, pytorch, image restoration, super-resolution, esrgan, real-esrgan',
-        url='https://github.com/xinntao/Real-ESRGAN',
-        include_package_data=True,
-        packages=find_packages(exclude=('options', 'datasets', 'experiments', 'results', 'tb_logger', 'wandb')),
-        classifiers=[
-            'Development Status :: 4 - Beta',
-            'License :: OSI Approved :: Apache Software License',
-            'Operating System :: OS Independent',
-            'Programming Language :: Python :: 3',
-            'Programming Language :: Python :: 3.7',
-            'Programming Language :: Python :: 3.8',
-        ],
-        license='BSD-3-Clause License',
-        setup_requires=['cython', 'numpy'],
-        install_requires=get_requirements(),
-        zip_safe=False)
+			name='realesrgan',
+			version="1",
+			description='Real-ESRGAN aims at developing Practical Algorithms for General Image Restoration',
+			long_description=readme(),
+			long_description_content_type='text/markdown',
+			author='Xintao Wang',
+			author_email='xintao.wang@outlook.com',
+			keywords='computer vision, pytorch, image restoration, super-resolution, esrgan, real-esrgan',
+			url='https://github.com/xinntao/Real-ESRGAN',
+			include_package_data=True,
+			packages=find_packages(exclude=('options', 'datasets', 'experiments', 'results', 'tb_logger', 'wandb')),
+			classifiers=[
+					'Development Status :: 4 - Beta',
+					'License :: OSI Approved :: Apache Software License',
+					'Operating System :: OS Independent',
+					'Programming Language :: Python :: 3',
+					'Programming Language :: Python :: 3.7',
+					'Programming Language :: Python :: 3.8',
+			],
+			license='BSD-3-Clause License',
+			setup_requires=['cython', 'numpy'],
+			install_requires=get_requirements(),
+			zip_safe=False
+		)
