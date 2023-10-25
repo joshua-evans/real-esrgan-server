@@ -57,7 +57,7 @@ __gitsha__ = '{}'
 version_info = ({})
 """
     sha = get_hash()
-    with open('VERSION', 'r') as f:
+    with open('./VERSION', 'r') as f:
         SHORT_VERSION = f.read().strip()
     VERSION_INFO = ', '.join([x if x.isdigit() else f'"{x}"' for x in SHORT_VERSION.split('.')])
 
@@ -78,12 +78,12 @@ def get_requirements(filename='requirements.txt'):
         requires = [line.replace('\n', '') for line in f.readlines()]
     return requires
 
-
+#write_version_py() write_version_py
+    
 if __name__ == '__main__':
-    write_version_py()
-    setup(
+  	setup(
         name='realesrgan',
-        version=get_version(),
+        version="1"
         description='Real-ESRGAN aims at developing Practical Algorithms for General Image Restoration',
         long_description=readme(),
         long_description_content_type='text/markdown',
