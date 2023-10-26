@@ -13,7 +13,7 @@ jobs:
       name: Install vultr-cli
       uses: techknowlogick/action-vultr@v2
       with:
-        token: ${{ ssecrets.container_auth }}
+        token: ${{ secrets.container_auth }}
     - 
       name: Login
       uses: docker/login-action@v3
