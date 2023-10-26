@@ -10,20 +10,14 @@ jobs:
 
     steps:
     - 
-      name: Install vultr-cli
-      uses: techknowlogick/action-vultr@v2
-      with:
-        token: ${{ secrets.container_auth }}
-    - 
       name: Login
       uses: docker/login-action@v3
       with:
         registry: sjc.vultrcr.com
         username: ${{ secrets.container_username }}
         password: ${{ secrets.container_key }}        
-    -
-      name: Build and push
-      uses: docker/build-push-action@v5
+    - 
+      name: Install vultr-cli
+      uses: techknowlogick/action-vultr@v2
       with:
-        push: true
-        tags: realesrgan_server/app:latest
+        token: ${{ secrets.container_auth }}
