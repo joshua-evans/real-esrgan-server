@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install vultr-cli
+    - 
+      name: Install vultr-cli
       uses: techknowlogick/action-vultr@v2
       with:
         token: ${{ ssecrets.container_auth }}
