@@ -15,10 +15,11 @@ jobs:
       with:
         registry: sjc.vultrcr.com
         username: ${{ secrets.container_username }}
-        password: ${{ secrets.container_auth }}
+        password: ${{ secrets.container_key }}        
     -
-        name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: realesrgan_server/app:latest
+      name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        tags: realesrgan_server/app:latest
+        token: ${{ secrets.container_auth }}
