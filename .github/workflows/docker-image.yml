@@ -16,6 +16,13 @@ jobs:
       packages: write
 
     steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.vultr_url }}
+          username: ${{secrets.vultr_username}}
+          password: ${{secrets.vultr_key}}
+      
       - name: Build and push Docker image
         run: |
           docker login ${{ secrets.vultr_url }} -u ${{secrets.vultr_username}} -p ${{secrets.vultr_key}} 
