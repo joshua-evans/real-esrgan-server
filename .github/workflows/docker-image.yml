@@ -25,6 +25,5 @@ jobs:
       
       - name: Build and push Docker image
         run: |
-          docker login ${{ secrets.vultr_url }} -u ${{secrets.vultr_username}} -p ${{secrets.vultr_key}} 
           docker build ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker push ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
