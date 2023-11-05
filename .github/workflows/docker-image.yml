@@ -5,7 +5,6 @@ on:
     branches: [ "main" ]
 
 env:
-  REGISTRY: ${{ secrets.vultr_url }}
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:  
@@ -17,36 +16,8 @@ jobs:
       packages: write
 
     steps:
-      - name: Echo step 1
-        run: echo "STEP 1"
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Echo step 2
-        run: echo "STEP 2"
-
-      - name: Log in to the Container registry
-        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.vultr_username }}
-          password: ${{ secrets.vultr_key }}
-
-      - name: Echo step 3
-        run: echo "STEP 3"
-
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-        with:
-          images: ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
-      - name: Echo step 4
-        run: echo "STEP 4"
-
       - name: Build and push Docker image
         run: |
-          docker build -t latest ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}/store:latest
-          docker push ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}/store:latest
-
+          docker login ${{ secrets.vultr_url }} -u ${{secrets.vultr_username}} -p ${{secrets.vultr_key}} 
+          docker build ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          docker push ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
