@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  REGISTRY: ${{ secrets.VULTR_URL }}
+  REGISTRY: ${{ secrets.vultr_url }}
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:  
@@ -24,8 +24,8 @@ jobs:
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.VULTR_USERNAME }}
-          password: ${{ secrets.VULTR_KEY }}
+          username: ${{ secrets.vultr_username }}
+          password: ${{ secrets.vultr_key }}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
