@@ -52,6 +52,7 @@ jobs:
           push: true
           tags: "testtag"
           labels: ${{ steps.meta.outputs.labels }}
+          secrets: GIT_AUTH_TOKEN=${{ secrets.vultr_auth }}
 
       - name: Echo step 5
         run: echo "STEP 5"
