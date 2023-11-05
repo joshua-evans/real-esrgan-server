@@ -50,7 +50,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: "TESTTAG"
+          tags: "testtag"
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Echo step 5
