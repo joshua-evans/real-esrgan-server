@@ -47,6 +47,6 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build . --tag {{env.REGISTRY }}/${{ env.IMAGE_NAME }}/store:latest
+          docker build --tag {{env.REGISTRY }}/${{ env.IMAGE_NAME }}/store:latest
           docker push {{env.REGISTRY }}/${{ env.IMAGE_NAME }}  /store:latest
 
