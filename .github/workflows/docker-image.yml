@@ -17,9 +17,15 @@ jobs:
       packages: write
 
     steps:
+      - name: Echo step 1
+        run: echo "STEP 1"
+
       - name: Checkout repository
         uses: actions/checkout@v4
-    
+
+      - name: Echo step 2
+        run: echo "STEP 2"
+
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
@@ -27,11 +33,17 @@ jobs:
           username: ${{ secrets.vultr_username }}
           password: ${{ secrets.vultr_key }}
 
+      - name: Echo step 3
+        run: echo "STEP 3"
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Echo step 4
+        run: echo "STEP 4"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
@@ -40,4 +52,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      
+
+      - name: Echo step 5
+        run: echo "STEP 5"
+
