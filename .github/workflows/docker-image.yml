@@ -23,7 +23,8 @@ jobs:
           username: ${{secrets.vultr_username}}
           password: ${{secrets.vultr_key}}
       
-      - name: Build and push Docker image
-        run: |
-          docker build ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          docker push ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      - name: Build Docker image
+        run: docker build ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          
+      - name: Push Docker image
+        run: docker push ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
