@@ -12,10 +12,7 @@ jobs:
   build-and-push-publish:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-    
+    steps:    
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
@@ -36,5 +33,3 @@ jobs:
           push: true
           tags: latest
           labels: ${{ steps.meta.outputs.labels }}
-          username: ${{secrets.vultr_username}}
-          password: ${{secrets.vultr_key}}
