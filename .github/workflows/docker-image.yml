@@ -11,20 +11,21 @@ jobs:
   build-and-push-publish:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      packages: write
-
     steps:
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build
+        uses: docker/build-push-action@v5
         with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          tags: user/app:latest
           registry: ${{ secrets.vultr_url }}
           username: ${{secrets.vultr_username}}
           password: ${{secrets.vultr_key}}
-      
-      - name: Build Docker image
-        run: docker build ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          
-      - name: Push Docker image
-        run: docker push ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          secrets: |
+            "auth=${{ secrets.vutlr_auth }}"
