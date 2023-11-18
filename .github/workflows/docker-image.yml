@@ -20,4 +20,4 @@ jobs:
       with:
         push: true
         tags: realesrgan_server/app:latest
-        token: ${{ secrets.REGISTRY_AUTH }}  
+        github-token: ${{ secrets.REGISTRY_AUTH }}  
