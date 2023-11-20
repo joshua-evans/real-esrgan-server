@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: LOGIN
       uses: docker/login-action@v3.0.0
       with:
         registry: $secrets.REGISTRY_URL
