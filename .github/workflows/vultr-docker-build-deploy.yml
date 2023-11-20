@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - uses: actions/checkout@v1
     - name: Login
-      run: |
-        docker login https://sjc.vultrcr.com/jetestcontainer --username ${{ secrets.REGISTRY_USERNAME }} --password-stdin | echo ${{ secrets.REGISTRY_PASSWORD }} 
+      run: echo ${{ secrets.REGISTRY_PASSWORD }} |
+        docker login https://sjc.vultrcr.com/jetestcontainer --username ${{ secrets.REGISTRY_USERNAME }} --password-stdin
