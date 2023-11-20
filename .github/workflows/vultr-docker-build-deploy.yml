@@ -25,4 +25,4 @@ jobs:
     - uses: actions/checkout@v1
     - name: Login
       run: echo ${{ secrets.REGISTRY_PASSWORD }} |
-        docker login https://sjc.vultrcr.com/jetestcontainer --username ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+        docker login https://sjc.vultrcr.com/jetestcontainer --u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
