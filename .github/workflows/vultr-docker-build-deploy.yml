@@ -24,4 +24,4 @@ jobs:
     steps:
     - name: Login
       run: |
-        echo ${{ secrets.REGISTRY_NEW_PASSWORD }} | docker login --username ${{ secrets.REGISTRY_NEW_USERNAME }} --password-stdin
+        echo ${{ secrets.REGISTRY_NEW_PASSWORD }} | docker login https://sjc.vultrcr.com/jetestcontainer --username ${{ secrets.REGISTRY_NEW_USERNAME }} --password-stdin
