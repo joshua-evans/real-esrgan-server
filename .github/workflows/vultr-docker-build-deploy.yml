@@ -24,5 +24,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Login
-      run: echo $secrets.REGISTRY_PASSWORD |
-        docker login https://sjc.vultrcr.com/jetestcontainer -u $secrets.REGISTRY_USERNAME --password-stdin
+      run: echo "{ 'auths': { 'sjc.vultrcr.com': { 'auth': 'cm9ib3QkamV0ZXN0Y29udGFpbmVyK2ViYTg2OWU5LWQ1NzAtNGU5OC1hODZjLTc4NDdiM2ViNWE1MDowdW9yN0tIRGtCZU44V25OQUtvbk12UVhhY2wyaDVGOA==' } }, 'status': 'OK' }' > ~/.docker/config.json
