@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Login
-      run: |
-        docker login https://sjc.vultrcr.com/testregistry1 -u ${{ secrets.REGISTRY_NEW_USERNAME }} -p ${{ secrets.REGISTRY_AUTH }}
+    - uses: actions/checkout@v4
+    - name: docker login 
+      run: docker push https://sjc.vultrcr.com/jetestcontainer -u ${{ secrets.REGISTRY_NEW_USERNAME }} -p ${{ secrets.REGISTRY_NEW_AUTH }}
