@@ -1,4 +1,3 @@
-name: Build and Deploy
 on:
   push:
     branches: [ "main" ]
@@ -9,10 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: LOGIN
-      uses: docker/login-action@v3.0.0
-      with:
-        registry: {{ $secrets.REGISTRY_URL }}
-        username: {{ $secrets.REGISTRY_USERNAME }}
-        password: {{ $secrets.REGISTRY_PASSWORD }}
-    
+    - name: Login
+      run: |
+        docker login https://sjc.vultrcr.com/testregistry1 -u ${{ secrets.REGISTRY_NEW_USERNAME }} -p ${{ secrets.REGISTRY_AUTH }}
