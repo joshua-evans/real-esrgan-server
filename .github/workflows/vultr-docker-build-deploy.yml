@@ -1,13 +1,19 @@
+
+name: Docker Image CI
+
 on:
   push:
     branches: [ "main" ]
 
-jobs:
-  setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+jobs:  
+  setup-build-publish:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v4
-    - name: docker login 
-      run: docker login "https://sjc.vultrcr.com/jetestcontainer" -u $secrets.REGISTRY_USERNAME -p $secrets.REGISTRY_AUTH
+    - 
+      name: Login
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ secrets.REGISTRY_URL }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_AUTH }}
