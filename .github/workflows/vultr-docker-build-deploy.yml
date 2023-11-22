@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: docker login 
-      run: docker push https://sjc.vultrcr.com/jetestcontainer -u $secrets.REGISTRY_USERNAME -p $secrets.REGISTRY_AUTH
+      run: docker push https://sjc.vultrcr.com/jetestcontainer -u $secrets.REGISTRY_USERNAME -p $secrets.REGISTRY_KEY
